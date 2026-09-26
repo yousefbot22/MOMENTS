@@ -1,4 +1,5 @@
-/* style.css — DOBA CAFE بألوان أفتح وأنيقة */
+/* style.css — DOBA CAFE · Mint Breeze */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,9 +7,9 @@
 }
 
 body {
-  background: #1a1612;  /* بني غامق لكن أفتح من قبل */
+  background: #e8f4f0;  /* soft mint background */
   font-family: 'Cairo', sans-serif;
-  color: #f5ede3;
+  color: #1e3a32;  /* deep teal for text */
   padding: 20px 16px 40px;
   min-height: 100vh;
   position: relative;
@@ -16,13 +17,13 @@ body {
   direction: rtl;
 }
 
-/* رسومات الخلفية - ثابتة طول الوقت */
+/* background graphics — fixed */
 .bg {
   position: fixed;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.08;
-  filter: brightness(1.2);
+  opacity: 0.12;
+  filter: brightness(1.1) saturate(0.8);
 }
 
 .cup {
@@ -30,6 +31,7 @@ body {
   left: 30px;
   width: 300px;
   transform: rotate(-12deg);
+  opacity: 0.08;
 }
 
 .beans {
@@ -37,6 +39,7 @@ body {
   right: 40px;
   width: 280px;
   transform: rotate(5deg);
+  opacity: 0.08;
 }
 
 .smoke {
@@ -54,7 +57,7 @@ body {
   z-index: 5;
 }
 
-/* العنوان الرئيسي */
+/* main title */
 .title {
   text-align: center;
   margin-bottom: 48px;
@@ -65,23 +68,23 @@ body {
   font-size: 1.9rem;
   letter-spacing: 12px;
   font-weight: 300;
-  color: #d4b99a;
+  color: #2d8c6f;  /* mint green accent */
   text-transform: uppercase;
 }
 
 .title h1 {
   font-size: 4rem;
   font-weight: 700;
-  color: #efe0d0;
-  text-shadow: 0 0 15px rgba(200, 160, 120, 0.3);
+  color: #1e4d3d;  /* deep mint */
+  text-shadow: 0 0 15px rgba(100, 200, 170, 0.25);
   margin-top: -10px;
-  border-bottom: 2px solid #8b735a;
+  border-bottom: 2px solid #6ec8a8;
   display: inline-block;
   padding: 0 30px 18px;
   letter-spacing: 6px;
 }
 
-/* شبكة الأعمدة */
+/* column grid */
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -90,21 +93,21 @@ body {
 }
 
 .menu-col {
-  background: rgba(45, 35, 28, 0.75);  /* أفتح من قبل */
-  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.7);  /* clean white with transparency */
+  backdrop-filter: blur(6px);
   padding: 26px 20px;
   border-radius: 36px;
-  border: 1px solid #6b5743;
-  box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
+  border: 1px solid #b8dfd0;  /* soft mint border */
+  box-shadow: 0 20px 30px -10px rgba(40, 100, 80, 0.15);
   transition: all 0.2s;
 }
 
-/* عنوان القسم */
+/* section title */
 .section-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #e8d4be;
-  border-right: 6px solid #b8956e;
+  color: #1f6a52;  /* rich mint */
+  border-right: 6px solid #5eb394;
   padding-right: 20px;
   margin-bottom: 18px;
   letter-spacing: 1px;
@@ -113,22 +116,22 @@ body {
 .sub-title {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #d4bb9f;
+  color: #3d8c73;
   margin: 20px 0 12px 0;
-  border-bottom: 1px dashed #7a6550;
+  border-bottom: 1px dashed #8dc9b5;
   padding-bottom: 6px;
 }
 
-/* صف المنتج */
+/* item row */
 .item {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   padding: 9px 6px;
-  border-bottom: 1px dotted #6b5a48;
+  border-bottom: 1px dotted #b0d4c5;
   font-size: 1.25rem;
   font-weight: 400;
-  color: #f8ede0;
+  color: #1e3a32;
 }
 
 .item span:first-child {
@@ -137,18 +140,18 @@ body {
 
 .item span:last-child {
   font-weight: 700;
-  color: #e6c8a8;
-  background: #2f261e;
+  color: #1f6a52;
+  background: #d6f0e6;  /* light mint pill */
   padding: 2px 14px;
   border-radius: 40px;
   font-size: 1.2rem;
-  border: 1px solid #9a8167;
+  border: 1px solid #7ec8ad;
 }
 
 .flavor-note span:first-child {
   font-size: 1.1rem;
   font-weight: 300;
-  color: #cdb59e;
+  color: #5b8c7b;
   padding-right: 20px;
 }
 
@@ -156,18 +159,18 @@ body {
   display: none;
 }
 
-/* تذييل */
+/* footer */
 .footer-note {
   margin-top: 50px;
   text-align: center;
-  color: #b8a088;
+  color: #6a9f8b;
   font-size: 1.1rem;
   letter-spacing: 2px;
-  border-top: 1px solid #5f4d39;
+  border-top: 1px solid #b8dfd0;
   padding-top: 28px;
 }
 
-/* تجاوب */
+/* responsiveness */
 @media (max-width: 1000px) {
   .menu-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -179,4 +182,6 @@ body {
   .menu-grid {
     grid-template-columns: 1fr;
   }
+  .title h1 { font-size: 2.2rem; }
+  .title span { font-size: 1.4rem; letter-spacing: 6px; }
 }
