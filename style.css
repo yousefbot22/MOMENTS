@@ -9,7 +9,7 @@
 body {
   background: #e8f4f0;  /* soft mint background */
   font-family: 'Cairo', sans-serif;
-  color: #1e3a32;  /* deep teal for text */
+  color: #1e3a32;       /* deep teal text */
   padding: 20px 16px 40px;
   min-height: 100vh;
   position: relative;
@@ -17,12 +17,12 @@ body {
   direction: rtl;
 }
 
-/* background graphics — fixed */
+/* ---------- Background graphics (fixed) ---------- */
 .bg {
   position: fixed;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.12;
+  opacity: 0.08;
   filter: brightness(1.1) saturate(0.8);
 }
 
@@ -31,7 +31,6 @@ body {
   left: 30px;
   width: 300px;
   transform: rotate(-12deg);
-  opacity: 0.08;
 }
 
 .beans {
@@ -39,7 +38,6 @@ body {
   right: 40px;
   width: 280px;
   transform: rotate(5deg);
-  opacity: 0.08;
 }
 
 .smoke {
@@ -57,7 +55,7 @@ body {
   z-index: 5;
 }
 
-/* main title */
+/* ---------- Main title ---------- */
 .title {
   text-align: center;
   margin-bottom: 48px;
@@ -68,14 +66,14 @@ body {
   font-size: 1.9rem;
   letter-spacing: 12px;
   font-weight: 300;
-  color: #2d8c6f;  /* mint green accent */
+  color: #2d8c6f;
   text-transform: uppercase;
 }
 
 .title h1 {
   font-size: 4rem;
   font-weight: 700;
-  color: #1e4d3d;  /* deep mint */
+  color: #1e4d3d;
   text-shadow: 0 0 15px rgba(100, 200, 170, 0.25);
   margin-top: -10px;
   border-bottom: 2px solid #6ec8a8;
@@ -84,7 +82,7 @@ body {
   letter-spacing: 6px;
 }
 
-/* column grid */
+/* ---------- Column grid ---------- */
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -93,20 +91,25 @@ body {
 }
 
 .menu-col {
-  background: rgba(255, 255, 255, 0.7);  /* clean white with transparency */
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   padding: 26px 20px;
   border-radius: 36px;
-  border: 1px solid #b8dfd0;  /* soft mint border */
+  border: 1px solid #b8dfd0;
   box-shadow: 0 20px 30px -10px rgba(40, 100, 80, 0.15);
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
-/* section title */
+.menu-col:hover {
+  box-shadow: 0 24px 36px -10px rgba(40, 100, 80, 0.22);
+}
+
+/* ---------- Section title ---------- */
 .section-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #1f6a52;  /* rich mint */
+  color: #1f6a52;
   border-right: 6px solid #5eb394;
   padding-right: 20px;
   margin-bottom: 18px;
@@ -122,7 +125,7 @@ body {
   padding-bottom: 6px;
 }
 
-/* item row */
+/* ---------- Item row ---------- */
 .item {
   display: flex;
   justify-content: space-between;
@@ -141,13 +144,15 @@ body {
 .item span:last-child {
   font-weight: 700;
   color: #1f6a52;
-  background: #d6f0e6;  /* light mint pill */
+  background: #d6f0e6;
   padding: 2px 14px;
   border-radius: 40px;
   font-size: 1.2rem;
   border: 1px solid #7ec8ad;
+  white-space: nowrap;
 }
 
+/* Flavor sub-notes */
 .flavor-note span:first-child {
   font-size: 1.1rem;
   font-weight: 300;
@@ -159,7 +164,7 @@ body {
   display: none;
 }
 
-/* footer */
+/* ---------- Footer ---------- */
 .footer-note {
   margin-top: 50px;
   text-align: center;
@@ -170,18 +175,52 @@ body {
   padding-top: 28px;
 }
 
-/* responsiveness */
+.footer-note span {
+  display: inline-block;
+}
+
+/* ---------- Responsive ---------- */
 @media (max-width: 1000px) {
   .menu-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .title h1 { font-size: 3rem; }
+  .title h1 {
+    font-size: 3rem;
+  }
 }
 
 @media (max-width: 650px) {
+  body {
+    padding: 16px 10px 30px;
+  }
   .menu-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
-  .title h1 { font-size: 2.2rem; }
-  .title span { font-size: 1.4rem; letter-spacing: 6px; }
+  .title h1 {
+    font-size: 2.2rem;
+    padding: 0 16px 12px;
+    letter-spacing: 3px;
+  }
+  .title span {
+    font-size: 1.3rem;
+    letter-spacing: 6px;
+  }
+  .menu-col {
+    padding: 20px 16px;
+    border-radius: 24px;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .item {
+    font-size: 1.1rem;
+  }
+  .item span:last-child {
+    font-size: 1.05rem;
+    padding: 2px 10px;
+  }
+  .bg {
+    display: none;
+  }
 }
