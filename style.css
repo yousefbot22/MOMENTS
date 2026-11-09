@@ -76,6 +76,7 @@ body {
 /* =========================================================
    INDIVIDUAL CREAM MENU PANELS (WITH LOGO WATERMARK)
    ========================================================= */
+/* المربع الأساسي */
 .section {
   position: relative;
   min-width: 0;
@@ -88,28 +89,31 @@ body {
   box-shadow: 0 3px 10px rgba(41, 72, 62, .12);
 }
 
-/* Logo watermark on every section */
+/* اللوجو كعلامة مائية في النص */
 .section::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background-image: url('moments-logo-watermark.png');
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* بيوسطن الصورة بالظبط */
+  width: 60%; /* حجم الصورة */
+  height: 60%;
+  background-image: url('moments-logo-watermark.png'); /* ⚠️ غيّر الاسم ده لاسم صورتك بالظبط */
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 55%;
-  opacity: 0.15; /* شفافية اللوجو */
+  background-size: contain;
+  opacity: 0.25; /* زودنا الشفافية عشان تبان (خليها 0.4 لو عايزها أوضح) */
   pointer-events: none;
   z-index: 0;
 }
 
-/* Make sure content sits above the watermark */
+/* النصوص فوق اللوجو */
 .card-title,
 .price-header,
 .menu-item {
   position: relative;
   z-index: 1;
 }
-
 .section:last-child {
   margin-bottom: 0;
 }
