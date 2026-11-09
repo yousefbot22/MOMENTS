@@ -1,4 +1,4 @@
-/* MOMENTS CAFE — Mint Breeze Menu */
+/* MOMENTS CAFE — Mint Breeze Menu with logo watermark */
 
 * {
   margin: 0;
@@ -22,6 +22,8 @@ html {
 }
 
 body {
+  position: relative;
+  isolation: isolate;
   min-height: 100vh;
   padding: 22px 14px 36px;
   background: var(--wine);
@@ -29,6 +31,16 @@ body {
   font-family: 'Cairo', sans-serif;
   line-height: 1.35;
   direction: ltr;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url('moments-logo-watermark.png') center center / min(72vw, 760px) auto no-repeat;
+  opacity: .12;
 }
 
 .container {
