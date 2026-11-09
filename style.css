@@ -1,4 +1,7 @@
-/* MOMENTS CAFE — Burgundy & Cream Menu */
+/* =====================================
+   MOMENTS CAFE — MENU DESIGN
+   Burgundy & Cream Theme
+===================================== */
 
 * {
   margin: 0;
@@ -6,16 +9,40 @@
   box-sizing: border-box;
 }
 
+/* =====================================
+   COLOR SETTINGS
+   غيّر الألوان من هنا فقط
+===================================== */
+
 :root {
+  /* Background */
   --wine: #451719;
   --wine-dark: #321012;
+
+  /* Menu cards */
   --cream: #f3e6d2;
   --cream-light: #f8efdf;
   --cream-dark: #e8d5bc;
+
+  /* Text */
   --ink: #49352b;
   --muted: #8b674c;
+
+  /* Other colors */
   --line: #ddc6a9;
+  --heading-text: #38221c;
+  --header-text: #f4e5d2;
+
+  /* Effects */
+  --stripe: rgba(255, 250, 239, .48);
+  --row-border: rgba(166, 127, 91, .12);
+  --shadow: rgba(20, 5, 5, .18);
+  --page-border: rgba(235, 216, 190, .22);
 }
+
+/* =====================================
+   GENERAL
+===================================== */
 
 html {
   scroll-behavior: smooth;
@@ -36,12 +63,18 @@ body {
   margin: 0 auto;
 }
 
-/* The reference menu starts directly with the sections */
+/* =====================================
+   MAIN TITLE
+===================================== */
+
 .title {
   display: none;
 }
 
-/* Each menu page has two independent columns */
+/* =====================================
+   MENU PAGES
+===================================== */
+
 .menu-page {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -49,13 +82,17 @@ body {
   align-items: start;
   padding: 0 22px 54px;
   margin-bottom: 30px;
-  border-bottom: 1px solid rgba(235, 216, 190, .22);
+  border-bottom: 1px solid var(--page-border);
 }
 
 .menu-page:last-of-type {
   border-bottom: 0;
   margin-bottom: 0;
 }
+
+/* =====================================
+   MENU COLUMNS
+===================================== */
 
 .menu-col {
   min-width: 0;
@@ -71,23 +108,29 @@ body {
   -webkit-backdrop-filter: none;
 }
 
-/* Individual cream menu panels */
+/* =====================================
+   MENU SECTIONS
+===================================== */
+
 .section {
   min-width: 0;
   overflow: hidden;
   margin: 0;
   padding: 0 0 2px;
   background: var(--cream);
-  border: 1px solid #d6bea0;
+  border: 1px solid var(--line);
   border-radius: 0;
-  box-shadow: 0 2px 5px rgba(20, 5, 5, .18);
+  box-shadow: 0 2px 5px var(--shadow);
 }
 
 .section:last-child {
   margin-bottom: 0;
 }
 
-/* Burgundy letter-spaced section heading */
+/* =====================================
+   SECTION HEADINGS
+===================================== */
+
 .card-title {
   display: flex;
   align-items: center;
@@ -95,12 +138,16 @@ body {
   min-height: 34px;
   margin: 0;
   padding: 3px 8px 4px;
+
   background: var(--cream-dark);
   border: 0;
-  border-bottom: 1px solid #d2b99b;
-  border-radius: 0;
-  color: #38221c;
-  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  border-bottom: 1px solid var(--line);
+
+  color: var(--heading-text);
+
+  font-family: 'Cormorant Garamond',
+               'Playfair Display', serif;
+
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 6px;
@@ -109,17 +156,24 @@ body {
   text-transform: uppercase;
 }
 
-/* Size labels */
+/* =====================================
+   PRICE HEADER
+===================================== */
+
 .price-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 48px 48px;
   align-items: center;
+
   min-height: 15px;
   margin: 0;
   padding: 1px 7px 2px;
+
   background: var(--wine);
   border: 0;
-  color: #f4e5d2;
+
+  color: var(--header-text);
+
   font-family: 'Cairo', sans-serif;
   font-size: 8px;
   font-weight: 600;
@@ -134,16 +188,23 @@ body {
   padding-left: 2px;
 }
 
-/* Product and price rows */
+/* =====================================
+   MENU ITEMS
+===================================== */
+
 .menu-item {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 48px 48px;
   align-items: center;
+
   min-height: 30px;
   padding: 5px 8px;
+
   border: 0;
-  border-bottom: 1px solid rgba(166, 127, 91, .12);
+  border-bottom: 1px solid var(--row-border);
+
   color: var(--ink);
+
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0;
@@ -151,13 +212,17 @@ body {
   text-transform: uppercase;
 }
 
+/* Alternate row colors */
+
 .menu-item:nth-child(even) {
-  background: rgba(255, 250, 239, .48);
+  background: var(--stripe);
 }
 
 .menu-item:last-child {
   border-bottom: 0;
 }
+
+/* Product name */
 
 .menu-item span:first-child {
   min-width: 0;
@@ -165,34 +230,48 @@ body {
   text-align: left;
 }
 
+/* Prices */
+
 .menu-item span:nth-child(2),
 .menu-item span:nth-child(3) {
   justify-self: center;
   width: 100%;
   padding: 1px 0;
+
   background: transparent;
   border: 0;
   border-radius: 0;
+
   color: var(--muted);
-  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+
+  font-family: 'Cormorant Garamond',
+               'Playfair Display', serif;
+
   font-size: 12px;
   font-weight: 700;
   text-align: center;
 }
 
-/* Keep long product names readable */
+/* Long product names */
+
 .menu-item span:first-child br {
   display: block;
   content: "";
   margin-top: 2px;
 }
 
-/* Footer */
+/* =====================================
+   FOOTER
+===================================== */
+
 .footer-note {
   margin: 12px 22px 0;
   padding: 16px 0 0;
-  border-top: 1px solid rgba(235, 216, 190, .22);
+
+  border-top: 1px solid var(--page-border);
+
   color: var(--cream-dark);
+
   font-family: 'Cormorant Garamond', serif;
   font-size: 13px;
   font-weight: 600;
@@ -201,8 +280,12 @@ body {
   text-transform: uppercase;
 }
 
-/* Tablet */
+/* =====================================
+   TABLET RESPONSIVE
+===================================== */
+
 @media (max-width: 760px) {
+
   body {
     padding: 16px 9px 26px;
   }
@@ -236,8 +319,12 @@ body {
   }
 }
 
-/* Small phones */
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
 @media (max-width: 480px) {
+
   body {
     padding: 12px 6px 22px;
   }
