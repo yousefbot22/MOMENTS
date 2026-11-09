@@ -1,6 +1,7 @@
 /* =====================================
-   MOMENTS CAFE — MENU DESIGN
-   Burgundy & Cream Theme
+   MOMENTS CAFE
+   MINT BREEZE THEME
+   Primary: #99CCBB
 ===================================== */
 
 * {
@@ -11,33 +12,27 @@
 
 /* =====================================
    COLOR SETTINGS
-   غيّر الألوان من هنا فقط
 ===================================== */
 
 :root {
-  /* Background */
-  --wine: #451719;
-  --wine-dark: #321012;
+  --wine: #99CCBB;
+  --wine-dark: #78B5A2;
 
-  /* Menu cards */
-  --cream: #f3e6d2;
-  --cream-light: #f8efdf;
-  --cream-dark: #e8d5bc;
+  --cream: #F4FAF7;
+  --cream-light: #FFFFFF;
+  --cream-dark: #DCEFE7;
 
-  /* Text */
-  --ink: #49352b;
-  --muted: #8b674c;
+  --ink: #29483E;
+  --muted: #568575;
 
-  /* Other colors */
-  --line: #ddc6a9;
-  --heading-text: #38221c;
-  --header-text: #f4e5d2;
+  --line: #C5E2D6;
+  --heading-text: #29483E;
+  --header-text: #FFFFFF;
 
-  /* Effects */
-  --stripe: rgba(255, 250, 239, .48);
-  --row-border: rgba(166, 127, 91, .12);
-  --shadow: rgba(20, 5, 5, .18);
-  --page-border: rgba(235, 216, 190, .22);
+  --stripe: rgba(153, 204, 187, 0.16);
+  --row-border: rgba(86, 133, 117, 0.12);
+  --shadow: rgba(41, 72, 62, 0.12);
+  --page-border: rgba(255, 255, 255, 0.35);
 }
 
 /* =====================================
@@ -104,8 +99,6 @@ body {
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
 }
 
 /* =====================================
@@ -117,9 +110,11 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0 0 2px;
+
   background: var(--cream);
   border: 1px solid var(--line);
   border-radius: 0;
+
   box-shadow: 0 2px 5px var(--shadow);
 }
 
@@ -135,12 +130,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
   min-height: 34px;
   margin: 0;
   padding: 3px 8px 4px;
 
   background: var(--cream-dark);
-  border: 0;
   border-bottom: 1px solid var(--line);
 
   color: var(--heading-text);
@@ -169,7 +164,7 @@ body {
   margin: 0;
   padding: 1px 7px 2px;
 
-  background: var(--wine);
+  background: var(--wine-dark);
   border: 0;
 
   color: var(--header-text);
@@ -212,7 +207,7 @@ body {
   text-transform: uppercase;
 }
 
-/* Alternate row colors */
+/* Alternate rows */
 
 .menu-item:nth-child(even) {
   background: var(--stripe);
@@ -293,7 +288,6 @@ body {
   .menu-page {
     gap: 14px;
     padding: 0 8px 32px;
-    margin-bottom: 22px;
   }
 
   .card-title {
@@ -365,5 +359,27 @@ body {
   .footer-note {
     margin-right: 5px;
     margin-left: 5px;
+  }
+}
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 350px) {
+
+  .card-title {
+    font-size: 14px;
+    letter-spacing: 3px;
+  }
+
+  .menu-item {
+    font-size: 9px;
+    padding: 5px 6px;
+  }
+
+  .price-header,
+  .menu-item {
+    grid-template-columns: minmax(0, 1fr) 40px 40px;
   }
 }
