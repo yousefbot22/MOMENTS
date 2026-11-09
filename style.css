@@ -1,4 +1,4 @@
-/* MOMENTS CAFE — Mint Breeze Menu with logo watermark */
+/* MOMENTS CAFE — Mint Breeze Menu with logo watermark inside every pricing container */
 
 * {
   margin: 0;
@@ -31,16 +31,6 @@ body {
   font-family: 'Cairo', sans-serif;
   line-height: 1.35;
   direction: ltr;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: url('moments-logo-watermark.png') center center / min(72vw, 760px) auto no-repeat;
-  opacity: .12;
 }
 
 .container {
@@ -83,23 +73,53 @@ body::before {
   -webkit-backdrop-filter: none;
 }
 
-/* Individual cream menu panels */
+/* =========================================================
+   الـ Container الخاص بالأسعار
+   ========================================================= */
 .section {
+  position: relative;
   min-width: 0;
   overflow: hidden;
   margin: 0;
   padding: 0 0 2px;
-  background: var(--cream);
+  background-color: var(--cream);
   border: 1px solid #C5E2D6;
   border-radius: 0;
   box-shadow: 0 3px 10px rgba(41, 72, 62, .12);
+  isolation: isolate; 
+}
+
+/* طبقة اللوجو */
+.section::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  height: 65%;
+  background-image: url('moments-logo-watermark.png'); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* النصوص والعناوين فوق اللوجو */
+.card-title,
+.price-header,
+.menu-item {
+  position: relative;
+  z-index: 1;
 }
 
 .section:last-child {
   margin-bottom: 0;
 }
 
-/* Burgundy letter-spaced section heading */
+/* العناوين */
 .card-title {
   display: flex;
   align-items: center;
@@ -121,10 +141,10 @@ body::before {
   text-transform: uppercase;
 }
 
-/* Size labels */
+/* رأس الجدول (MINI / MEDIUM) */
 .price-header {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 48px 48px;
+  grid-template-columns: minmax(0, 1fr) 60px 60px; /* كبرنا عرض الخانات عشان الأرقام الكبيرة */
   align-items: center;
   min-height: 15px;
   margin: 0;
@@ -146,12 +166,12 @@ body::before {
   padding-left: 2px;
 }
 
-/* Product and price rows */
+/* السطور (اسم المنتج + الأسعار) */
 .menu-item {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 48px 48px;
+  grid-template-columns: minmax(0, 1fr) 60px 60px; /* كبرنا عرض الخانات */
   align-items: center;
-  min-height: 30px;
+  min-height: 32px;
   padding: 5px 8px;
   border: 0;
   border-bottom: 1px solid rgba(86, 133, 117, .14);
@@ -161,10 +181,11 @@ body::before {
   letter-spacing: 0;
   line-height: 1.3;
   text-transform: uppercase;
+  background: transparent; 
 }
 
 .menu-item:nth-child(even) {
-  background: rgba(153, 204, 187, .13);
+  background: rgba(153, 204, 187, 0.15);
 }
 
 .menu-item:last-child {
@@ -177,6 +198,7 @@ body::before {
   text-align: left;
 }
 
+/* 👇 هنا التعديل الأساسي للأرقام (كبرنا الخط وخلي اللون أسود) */
 .menu-item span:nth-child(2),
 .menu-item span:nth-child(3) {
   justify-self: center;
@@ -185,10 +207,10 @@ body::before {
   background: transparent;
   border: 0;
   border-radius: 0;
-  color: var(--muted);
+  color: #000000; /* أسود صريح */
   font-family: 'Cormorant Garamond', 'Playfair Display', serif;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 16px; /* تكبير حجم الخط (كان 12) */
+  font-weight: 800; /* خط عريض جداً */
   text-align: center;
 }
 
@@ -233,18 +255,18 @@ body::before {
 
   .price-header,
   .menu-item {
-    grid-template-columns: minmax(0, 1fr) 39px 39px;
+    grid-template-columns: minmax(0, 1fr) 50px 50px;
   }
 
   .menu-item {
-    min-height: 29px;
+    min-height: 30px;
     padding: 5px 6px;
     font-size: 9px;
   }
 
   .menu-item span:nth-child(2),
   .menu-item span:nth-child(3) {
-    font-size: 11px;
+    font-size: 15px; /* تصغير بسيط في الموبايل عشان ميزقش */
   }
 }
 
@@ -273,18 +295,18 @@ body::before {
 
   .price-header,
   .menu-item {
-    grid-template-columns: minmax(0, 1fr) 48px 48px;
+    grid-template-columns: minmax(0, 1fr) 55px 55px;
   }
 
   .menu-item {
-    min-height: 31px;
+    min-height: 32px;
     padding: 5px 9px;
     font-size: 10px;
   }
 
   .menu-item span:nth-child(2),
   .menu-item span:nth-child(3) {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .footer-note {
