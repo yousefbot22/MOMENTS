@@ -1,4 +1,4 @@
-/* MOMENTS CAFE — Mint Breeze Menu with logo watermark inside every section */
+/* MOMENTS CAFE — Mint Breeze Menu with logo watermark inside every pricing container */
 
 * {
   margin: 0;
@@ -74,9 +74,8 @@ body {
 }
 
 /* =========================================================
-   INDIVIDUAL CREAM MENU PANELS (WITH LOGO WATERMARK)
+   الـ Container الخاص بالأسعار (اللوجو هيكون جواه)
    ========================================================= */
-/* المربع الأساسي */
 .section {
   position: relative;
   min-width: 0;
@@ -87,33 +86,37 @@ body {
   border: 1px solid #C5E2D6;
   border-radius: 0;
   box-shadow: 0 3px 10px rgba(41, 72, 62, .12);
+  /* تأكد إننا بنعمل isolate عشان اللوجو ميهربش بره المربع */
+  isolation: isolate; 
 }
 
-/* اللوجو كعلامة مائية في النص */
+/* طبقة اللوجو (Watermark) داخل كل مربع أسعار */
 .section::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* بيوسطن الصورة بالظبط */
-  width: 60%; /* حجم الصورة */
-  height: 60%;
-  background-image: url('moments-logo-watermark.png'); /* ⚠️ غيّر الاسم ده لاسم صورتك بالظبط */
+  transform: translate(-50%, -50%); /* توسيط اللوجو بالظبط في نص المربع */
+  width: 65%; /* حجم اللوجو */
+  height: 65%;
+  /* 👇 هنا بنحدد مسار الصورة (تأكد إن الاسم مطابق للصورة اللي رفعتها) */
+  background-image: url('moments-logo-watermark.png'); 
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
-  opacity: 0.25; /* زودنا الشفافية عشان تبان (خليها 0.4 لو عايزها أوضح) */
-  pointer-events: none;
-  z-index: 0;
+  opacity: 0.1; /* شفافية اللوجو (0.1 خفيف جداً، 0.3 واضح، اختار اللي يريحك) */
+  pointer-events: none; /* عشان ميعطلش الضغط على النصوص */
+  z-index: -1; /* يروح ورا النصوص تماماً */
 }
 
-/* النصوص فوق اللوجو */
+/* النصوص والعناوين (عشان تضمن إنها تظهر فوق اللوجو) */
 .card-title,
 .price-header,
 .menu-item {
   position: relative;
   z-index: 1;
 }
+
 .section:last-child {
   margin-bottom: 0;
 }
@@ -180,10 +183,12 @@ body {
   letter-spacing: 0;
   line-height: 1.3;
   text-transform: uppercase;
+  background: transparent; /* عشان ميبقاش فيه خلفية تغطي اللوجو */
 }
 
+/* تظليل خفيف للسطور الزوجية بس شفاف عشان اللوجو يبان من وراه */
 .menu-item:nth-child(even) {
-  background: rgba(153, 204, 187, 0.18);
+  background: rgba(153, 204, 187, 0.15);
 }
 
 .menu-item:last-child {
