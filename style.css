@@ -1,8 +1,4 @@
-/* =====================================
-   MOMENTS CAFE
-   MINT BREEZE THEME
-   Primary: #99CCBB
-===================================== */
+/* MOMENTS CAFE — Mint Breeze Menu */
 
 * {
   margin: 0;
@@ -10,34 +6,16 @@
   box-sizing: border-box;
 }
 
-/* =====================================
-   COLOR SETTINGS
-===================================== */
-
 :root {
   --wine: #99CCBB;
   --wine-dark: #78B5A2;
-
   --cream: #F4FAF7;
   --cream-light: #FFFFFF;
   --cream-dark: #DCEFE7;
-
   --ink: #29483E;
   --muted: #568575;
-
   --line: #C5E2D6;
-  --heading-text: #29483E;
-  --header-text: #FFFFFF;
-
-  --stripe: rgba(153, 204, 187, 0.16);
-  --row-border: rgba(86, 133, 117, 0.12);
-  --shadow: rgba(41, 72, 62, 0.12);
-  --page-border: rgba(255, 255, 255, 0.35);
 }
-
-/* =====================================
-   GENERAL
-===================================== */
 
 html {
   scroll-behavior: smooth;
@@ -58,18 +36,12 @@ body {
   margin: 0 auto;
 }
 
-/* =====================================
-   MAIN TITLE
-===================================== */
-
+/* The reference menu starts directly with the sections */
 .title {
   display: none;
 }
 
-/* =====================================
-   MENU PAGES
-===================================== */
-
+/* Each menu page has two independent columns */
 .menu-page {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -77,17 +49,13 @@ body {
   align-items: start;
   padding: 0 22px 54px;
   margin-bottom: 30px;
-  border-bottom: 1px solid var(--page-border);
+  border-bottom: 1px solid rgba(255, 255, 255, .35);
 }
 
 .menu-page:last-of-type {
   border-bottom: 0;
   margin-bottom: 0;
 }
-
-/* =====================================
-   MENU COLUMNS
-===================================== */
 
 .menu-col {
   min-width: 0;
@@ -99,50 +67,40 @@ body {
   border: 0;
   border-radius: 0;
   box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
-/* =====================================
-   MENU SECTIONS
-===================================== */
-
+/* Individual cream menu panels */
 .section {
   min-width: 0;
   overflow: hidden;
   margin: 0;
   padding: 0 0 2px;
-
   background: var(--cream);
-  border: 1px solid var(--line);
+  border: 1px solid #C5E2D6;
   border-radius: 0;
-
-  box-shadow: 0 2px 5px var(--shadow);
+  box-shadow: 0 3px 10px rgba(41, 72, 62, .12);
 }
 
 .section:last-child {
   margin-bottom: 0;
 }
 
-/* =====================================
-   SECTION HEADINGS
-===================================== */
-
+/* Burgundy letter-spaced section heading */
 .card-title {
   display: flex;
   align-items: center;
   justify-content: center;
-
   min-height: 34px;
   margin: 0;
   padding: 3px 8px 4px;
-
   background: var(--cream-dark);
-  border-bottom: 1px solid var(--line);
-
-  color: var(--heading-text);
-
-  font-family: 'Cormorant Garamond',
-               'Playfair Display', serif;
-
+  border: 0;
+  border-bottom: 1px solid #C5E2D6;
+  border-radius: 0;
+  color: #29483E;
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 6px;
@@ -151,24 +109,17 @@ body {
   text-transform: uppercase;
 }
 
-/* =====================================
-   PRICE HEADER
-===================================== */
-
+/* Size labels */
 .price-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 48px 48px;
   align-items: center;
-
   min-height: 15px;
   margin: 0;
   padding: 1px 7px 2px;
-
-  background: var(--wine-dark);
+  background: var(--wine);
   border: 0;
-
-  color: var(--header-text);
-
+  color: #FFFFFF;
   font-family: 'Cairo', sans-serif;
   font-size: 8px;
   font-weight: 600;
@@ -183,23 +134,16 @@ body {
   padding-left: 2px;
 }
 
-/* =====================================
-   MENU ITEMS
-===================================== */
-
+/* Product and price rows */
 .menu-item {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 48px 48px;
   align-items: center;
-
   min-height: 30px;
   padding: 5px 8px;
-
   border: 0;
-  border-bottom: 1px solid var(--row-border);
-
+  border-bottom: 1px solid rgba(86, 133, 117, .14);
   color: var(--ink);
-
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0;
@@ -207,17 +151,13 @@ body {
   text-transform: uppercase;
 }
 
-/* Alternate rows */
-
 .menu-item:nth-child(even) {
-  background: var(--stripe);
+  background: rgba(153, 204, 187, .13);
 }
 
 .menu-item:last-child {
   border-bottom: 0;
 }
-
-/* Product name */
 
 .menu-item span:first-child {
   min-width: 0;
@@ -225,48 +165,34 @@ body {
   text-align: left;
 }
 
-/* Prices */
-
 .menu-item span:nth-child(2),
 .menu-item span:nth-child(3) {
   justify-self: center;
   width: 100%;
   padding: 1px 0;
-
   background: transparent;
   border: 0;
   border-radius: 0;
-
   color: var(--muted);
-
-  font-family: 'Cormorant Garamond',
-               'Playfair Display', serif;
-
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
   font-size: 12px;
   font-weight: 700;
   text-align: center;
 }
 
-/* Long product names */
-
+/* Keep long product names readable */
 .menu-item span:first-child br {
   display: block;
   content: "";
   margin-top: 2px;
 }
 
-/* =====================================
-   FOOTER
-===================================== */
-
+/* Footer */
 .footer-note {
   margin: 12px 22px 0;
   padding: 16px 0 0;
-
-  border-top: 1px solid var(--page-border);
-
+  border-top: 1px solid rgba(255, 255, 255, .35);
   color: var(--cream-dark);
-
   font-family: 'Cormorant Garamond', serif;
   font-size: 13px;
   font-weight: 600;
@@ -275,12 +201,8 @@ body {
   text-transform: uppercase;
 }
 
-/* =====================================
-   TABLET RESPONSIVE
-===================================== */
-
+/* Tablet */
 @media (max-width: 760px) {
-
   body {
     padding: 16px 9px 26px;
   }
@@ -288,6 +210,7 @@ body {
   .menu-page {
     gap: 14px;
     padding: 0 8px 32px;
+    margin-bottom: 22px;
   }
 
   .card-title {
@@ -313,12 +236,8 @@ body {
   }
 }
 
-/* =====================================
-   MOBILE RESPONSIVE
-===================================== */
-
+/* Small phones */
 @media (max-width: 480px) {
-
   body {
     padding: 12px 6px 22px;
   }
@@ -359,27 +278,5 @@ body {
   .footer-note {
     margin-right: 5px;
     margin-left: 5px;
-  }
-}
-
-/* =====================================
-   SMALL MOBILE
-===================================== */
-
-@media (max-width: 350px) {
-
-  .card-title {
-    font-size: 14px;
-    letter-spacing: 3px;
-  }
-
-  .menu-item {
-    font-size: 9px;
-    padding: 5px 6px;
-  }
-
-  .price-header,
-  .menu-item {
-    grid-template-columns: minmax(0, 1fr) 40px 40px;
   }
 }
