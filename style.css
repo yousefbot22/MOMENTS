@@ -1,4 +1,4 @@
-/* MOMENTS CAFE — Mint Breeze Menu with logo watermark */
+/* MOMENTS CAFE — Mint Breeze Menu with logo watermark inside every section */
 
 * {
   margin: 0;
@@ -31,16 +31,6 @@ body {
   font-family: 'Cairo', sans-serif;
   line-height: 1.35;
   direction: ltr;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: url('moments-logo-watermark.png') center center / min(72vw, 760px) auto no-repeat;
-  opacity: .12;
 }
 
 .container {
@@ -83,16 +73,41 @@ body::before {
   -webkit-backdrop-filter: none;
 }
 
-/* Individual cream menu panels */
+/* =========================================================
+   INDIVIDUAL CREAM MENU PANELS (WITH LOGO WATERMARK)
+   ========================================================= */
 .section {
+  position: relative;
   min-width: 0;
   overflow: hidden;
   margin: 0;
   padding: 0 0 2px;
-  background: var(--cream);
+  background-color: var(--cream);
   border: 1px solid #C5E2D6;
   border-radius: 0;
   box-shadow: 0 3px 10px rgba(41, 72, 62, .12);
+}
+
+/* Logo watermark on every section */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('moments-logo-watermark.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 55%;
+  opacity: 0.15; /* شفافية اللوجو */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Make sure content sits above the watermark */
+.card-title,
+.price-header,
+.menu-item {
+  position: relative;
+  z-index: 1;
 }
 
 .section:last-child {
@@ -164,7 +179,7 @@ body::before {
 }
 
 .menu-item:nth-child(even) {
-  background: rgba(153, 204, 187, .13);
+  background: rgba(153, 204, 187, 0.18);
 }
 
 .menu-item:last-child {
